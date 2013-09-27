@@ -138,28 +138,6 @@ const u32 ext_phy_ctrl_const_base[EMIF_EXT_PHY_CTRL_CONST_REG] = {
 	0x00000077
 };
 
-const u32 ddr3_ext_phy_ctrl_const_base[EMIF_EXT_PHY_CTRL_CONST_REG] = {
-	0x01004010,
-	0x00001004,
-	0x04010040,
-	0x01004010,
-	0x00001004,
-	0x00000000,
-	0x00000000,
-	0x00000000,
-	0x80080080,
-	0x00800800,
-	0x08102040,
-	0x00000002,
-	0x0,
-	0x0,
-	0x0,
-	0x00000000,
-	0x00000000,
-	0x00000000,
-	0x00000057
-};
-
 static void emif_get_reg_dump_sdp(u32 emif_nr, const struct emif_regs **regs)
 {
 	if (omap_revision() == OMAP5432_ES1_0)
@@ -203,6 +181,29 @@ void emif_get_device_details(u32 emif_nr,
 	__attribute__((weak, alias("emif_get_device_details_sdp")));
 
 #endif /* CONFIG_SYS_EMIF_PRECALCULATED_TIMING_REGS */
+
+/* Modifications for Elpida RAM */
+const u32 ddr3_ext_phy_ctrl_const_base[EMIF_EXT_PHY_CTRL_CONST_REG] = { 
+        0x01004010,
+        0x00001004,
+        0x04010040,
+        0x01004010,
+        0x00001004,
+        0x00000000,
+        0x00000000,
+        0x00000000,
+        0x80080080,
+        0x00800800,
+        0x08102040,
+        0x00000002,
+        0x0,
+        0x0,
+        0x0,
+        0x00000000,
+        0x00000000,
+        0x00000000,
+        0x00000057
+};	
 
 void do_ext_phy_settings(u32 base, const struct emif_regs *regs)
 {

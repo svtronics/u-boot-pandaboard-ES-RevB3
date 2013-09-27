@@ -90,9 +90,6 @@ const struct emif_regs emif_regs_elpida_400_mhz_2cs = {
 	.emif_ddr_phy_ctlr_1		= 0x049ff418
 };
 
-/* Dummy registers for OMAP44xx */
-const u32 ddr3_ext_phy_ctrl_const_base[EMIF_EXT_PHY_CTRL_CONST_REG];
-
 const struct dmm_lisa_map_regs lisa_map_2G_x_1_x_2 = {
 	.dmm_lisa_map_0 = 0xFF020100,
 	.dmm_lisa_map_1 = 0,
@@ -166,6 +163,12 @@ struct lpddr2_device_details *emif_get_device_details(u32 emif_nr, u8 cs,
 	__attribute__((weak, alias("emif_get_device_details_sdp")));
 
 #endif /* CONFIG_SYS_EMIF_PRECALCULATED_TIMING_REGS */
+
+/* 
+ * Dummy registers for OMAP44xx 
+ * Modifications for Elpida RAM
+ */
+const u32 ddr3_ext_phy_ctrl_const_base[EMIF_EXT_PHY_CTRL_CONST_REG];
 
 #ifndef CONFIG_SYS_DEFAULT_LPDDR2_TIMINGS
 static const struct lpddr2_ac_timings timings_elpida_400_mhz = {

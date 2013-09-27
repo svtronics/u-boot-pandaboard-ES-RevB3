@@ -276,8 +276,12 @@
 #endif
 #define CONFIG_SYS_CACHELINE_SIZE	32
 
-/* Defines for SDRAM init */
-#define CONFIG_SYS_EMIF_PRECALCULATED_TIMING_REGS
+/* 
+ * Disable for SDRAM init 
+ * Enabling automatic sdram detection
+ * Modifications for Elpida RAM
+ */ 
+#undef CONFIG_SYS_EMIF_PRECALCULATED_TIMING_REGS
 
 #ifndef CONFIG_SYS_EMIF_PRECALCULATED_TIMING_REGS
 #define CONFIG_SYS_AUTOMATIC_SDRAM_DETECTION
